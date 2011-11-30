@@ -26,6 +26,8 @@
 		3962EDA41484803E00335873 /* macPro.png in Resources */ = {isa = PBXBuildFile; fileRef = 3962EDA11484803E00335873 /* macPro.png */; };
 		3962EDA71484869C00335873 /* powerON.png in Resources */ = {isa = PBXBuildFile; fileRef = 3962EDA51484869C00335873 /* powerON.png */; };
 		3962EDA81484869C00335873 /* powerOFF.png in Resources */ = {isa = PBXBuildFile; fileRef = 3962EDA61484869C00335873 /* powerOFF.png */; };
+		3962EDB214857A7C00335873 /* textGlass.png in Resources */ = {isa = PBXBuildFile; fileRef = 3962EDB114857A7C00335873 /* textGlass.png */; };
+		3962EDB5148583F700335873 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3962EDB4148583F700335873 /* icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,8 @@
 		3962EDA11484803E00335873 /* macPro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = macPro.png; sourceTree = "<group>"; };
 		3962EDA51484869C00335873 /* powerON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = powerON.png; sourceTree = "<group>"; };
 		3962EDA61484869C00335873 /* powerOFF.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = powerOFF.png; sourceTree = "<group>"; };
+		3962EDB114857A7C00335873 /* textGlass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textGlass.png; sourceTree = "<group>"; };
+		3962EDB4148583F700335873 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 				3962ED9F1484803E00335873 /* CinemaDisplay.png */,
 				3962EDA01484803E00335873 /* macAir.png */,
 				3962EDA11484803E00335873 /* macPro.png */,
+				3962EDB4148583F700335873 /* icon.png */,
 				3962ED7414831C0600335873 /* Supporting Files */,
 			);
 			path = CustomSliderComponent;
@@ -115,6 +120,7 @@
 		3962ED7414831C0600335873 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3962EDB114857A7C00335873 /* textGlass.png */,
 				3962EDA51484869C00335873 /* powerON.png */,
 				3962EDA61484869C00335873 /* powerOFF.png */,
 				3962ED9C1484748E00335873 /* lightSource.png */,
@@ -195,6 +201,8 @@
 				3962EDA41484803E00335873 /* macPro.png in Resources */,
 				3962EDA71484869C00335873 /* powerON.png in Resources */,
 				3962EDA81484869C00335873 /* powerOFF.png in Resources */,
+				3962EDB214857A7C00335873 /* textGlass.png in Resources */,
+				3962EDB5148583F700335873 /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

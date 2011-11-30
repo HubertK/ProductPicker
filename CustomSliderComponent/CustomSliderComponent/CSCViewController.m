@@ -9,6 +9,8 @@
 #import "CSCViewController.h"
 
 @implementation CSCViewController
+@synthesize powerUpBotton;
+@synthesize firstButton;
 @synthesize sliderView;
 @synthesize slider;
 @synthesize label1;
@@ -23,7 +25,7 @@
 @synthesize spot1;
 @synthesize spotLights;
 @synthesize appleCollection;
-
+@synthesize isRunning;
 @synthesize firstX,firstY,constantY,endY;
 - (void)didReceiveMemoryWarning
 {
@@ -48,7 +50,9 @@
 -(void)move:(id)sender {
 	NSLog(@"See a move gesture");
        
-   
+    if (isRunning == YES) {
+        
+    
 	//[self.view bringSubviewToFront:[(UIPanGestureRecognizer*)sender view]];
 	CGPoint translatedPoint = [(UIPanGestureRecognizer*)sender translationInView:self.view];
     
@@ -96,7 +100,7 @@
 //                          [self turnOnLight:light];
 //                     }];
    [[sender view] setCenter:translatedPoint];
-    
+    }
 }
 - (void)animateSLiderToPosition:(CGPoint)pos tag:(NSInteger)tag{
     [UIView animateWithDuration:.35
@@ -195,6 +199,8 @@
     [self setSpot1:nil];
     [self setSpotLights:nil];
     [self setAppleCollection:nil];
+    [self setPowerUpBotton:nil];
+    [self setFirstButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -227,6 +233,9 @@
 }
 
 - (IBAction)moveSlider:(id)sender {
+    if (isRunning == YES) {
+        
+    
     NSInteger buttonTag = [sender tag];
     CGPoint buttonLoc;
     switch (buttonTag) {
@@ -246,7 +255,61 @@
             break;
     }
     [self animateSLiderToPosition:buttonLoc tag:buttonTag];
+        
+    }
 }
+
+
+- (IBAction)PowerUp:(id)sender {
+    if (isRunning == NO) {
+        
+    self.light1.image = [UIImage imageNamed:@"green.png"];
+    self.light1.image = [UIImage imageNamed:@"red.png"];
+    self.light1.image = [UIImage imageNamed:@"red.png"];
+    self.powerUpBotton.image = [UIImage imageNamed:@"powerON.png"];
+    
+        [self fadeLightIN:spot1 withDuration:.55 complete:YES opacity:0.4];
+        for (UIImageView *product in self.appleCollection) {
+            [self fadeLightIN:product withDuration:.1 complete:YES opacity:0];
+        }
+        
+    [self turnOnLight:1];
+        isRunning = YES;
+    }
+    else{
+        self.powerUpBotton.image = [UIImage imageNamed:@"powerOFF.png"];
+        for (UIImageView *light in self.lightCollection) {
+            light.image = [UIImage imageNamed:@"off.png"];
+            }
+        for (UIImageView *spot in self.spotLights) {
+            [self fadeLightOUT:spot withDuration:.55 complete:YES opacity:0];
+        }
+        for (UIImageView *product in self.appleCollection) {
+            [self fadeLightOUT:product withDuration:.55 complete:YES opacity:0];
+        }
+        CGPoint start = CGPointMake(label1.center.x, 90+(sliderView.frame.size.height)/2);
+        [UIView animateWithDuration:.55
+                              delay:0
+                            options: UIViewAnimationCurveEaseOut
+                         animations:^{
+                             [sliderView setCenter:start];
+                         } 
+                         completion:^(BOOL finished){
+                             NSLog(@"OFF!");
+                            }];
+
+        isRunning = NO;
+    }
+    
+}
+
+
+
+
+
+
+
+
 
 
 
